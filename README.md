@@ -10,19 +10,20 @@ codes are to be released soon
 
 ## Usage
 
-1. Install Python 3.8. For convenience, execute the following command.
+1. Install Python 3.9. For convenience, execute the following command.
 
 ```
 pip install -r requirements.txt
 ```
 
-2. Prepare Data. You can obtain the well pre-processed datasets from [[Google Drive]](https://drive.google.com/drive/folders/13Cg1KYOlzM5C7K8gK8NfC-F3EYxkM3D2?usp=sharing) or [[Baidu Drive]](https://pan.baidu.com/s/1r3KhGd0Q9PJIUZdfEYoymg?pwd=i9iy), Then place the downloaded data in the folder`./dataset`. Here is a summary of supported datasets.
+2. Prepare Data. You can download the original datasets from [IPINYOU](https://contest.ipinyou.com/) and [YOYI](https://apex.sjtu.edu.cn/datasets/7),
+After downloading, preprocess the datasets as follows: 
+(1) Group the datasets by advertiser objects, resulting in nine sub-datasets. Split the datasets into training and testing sets in a 2:1 ratio. 
+(2) Retain the original columns 'click' and 'bid_price', convert the discrete numerical values of 'click' into continuous values and use regression models to learn other feature information to fit 'click', generating a third column 'ctr' representing click-through rate
+(3) Save the processed data as a .txt file format. 
+Partially processed datasets will be provided as examples for this project.
 
-&lt;p align=&quot;center&quot;&gt;
-&lt;img src=&quot;.\pic\dataset.png&quot; height = &quot;200&quot; alt=&quot;&quot; align=center /&gt;
-&lt;/p&gt;
-
-3. Train and evaluate model. We provide the experiment scripts for all benchmarks under the folder `./scripts/`. You can reproduce the experiment results as the following examples:
+3. Train and evaluate model. You can adjust parameters in global.py and reproduce the experiment results as the following examples:
 
 ```
 python3 main.py
